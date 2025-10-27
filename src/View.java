@@ -18,6 +18,7 @@ public class View {
         System.out.println("3-> Bubble");
         System.out.println("4-> Salir");
         System.err.print("Seleccione la opcion: ");
+        
     }
 
     public int inputOption(int max) {

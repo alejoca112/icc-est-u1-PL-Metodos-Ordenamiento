@@ -1,58 +1,35 @@
+import java.util.Arrays;
+
 public class SortSelection {
-    
-    public SortSelection() {
-        }
-    public void SortAscendente(int[] numeros) {
 
-            for(int i = 0; i < numeros.length; i++) {
-                int i_menor = i;
-                for(int j = i+1; j < numeros.length ; j++){
-                    if (numeros[j] < numeros[i_menor]) {
-                        i_menor = j;
-                    }
+    public void sort(int[] numeros, boolean ordenOpt, boolean pasos) {
+        int comparaciones = 0, cambios = 0;
 
+        for (int i = 0; i < numeros.length - 1; i++) {
+            int pos = i;
+
+            for (int j = i + 1; j < numeros.length; j++) {
+                comparaciones++;
+                // ordenOpt == true → ascendente ; ordenOpt == false → descendente
+                if (ordenOpt ? numeros[j] < numeros[pos] : numeros[j] > numeros[pos]) {
+                    pos = j;
+                }
             }
-            if (i != i_menor) {
+
+            if (pos != i) {
                 int temp = numeros[i];
-                numeros[i] = numeros[i_menor];
-                numeros[i_menor] = temp; 
-            }
+                numeros[i] = numeros[pos];
+                numeros[pos] = temp;
+                cambios++;
 
+                if (pasos) {
+                    System.out.println(Arrays.toString(numeros));
+                }
+            }
         }
 
+        System.out.println("Arreglo ordenado: " + Arrays.toString(numeros));
+        System.out.println("Comparaciones: " + comparaciones);
+        System.out.println("Cambios: " + cambios);
     }
-    
-    public void SortDescendente(int[] numeros) {
-        for(int i = 0; i < numeros.length; i++) {
-                int i_menor = i;
-                for(int j = i+1; j < numeros.length ; j++){
-                    if (numeros[j] < numeros[i_menor]) {
-                        i_menor = j;
-                    }
-
-            }
-            if (i != i_menor) {
-                int temp = numeros[i];
-                numeros[i] = numeros[i_menor];
-                numeros[i_menor] = temp; 
-            }
-
-        }
-    }
-
-    public  void printArray(int[] numeros) {
-        System.out.print("[");
-        for (int i = 0; i < numeros.length; i++) {
-
-            if (i == numeros.length - 1) {
-                System.out.println(numeros[i]);
-            } else {
-                System.out.print(numeros[i]+ ", ");
-            }
-            
-            
-        }
-        System.out.println("]");
-    }
-
 }

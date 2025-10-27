@@ -12,24 +12,34 @@ public class App {
             view.showMenu();
             int option = view.inputOption(4); 
 
-            view.showOrder();
-            int orden = view.inputOption(2);
-            boolean ordenOpt = orden == 1;
-            view.showPasosMenu();
-            int pasos = view.inputOption(2);
             
             switch (option) {
                 case 1:
                     System.out.println("Metodo Seleccion");
+                    view.showOrder();
+                    int orden = view.inputOption(2);
+                    boolean ordenOpt = orden == 1;
+                    view.showPasosMenu();
+                    int pasos = view.inputOption(2);
                     sortSelection.sort(numeros, ordenOpt, pasos == 1);
                     break;
                 case 2:
                     System.out.println("Metodo Insercion");
-                    sortInsertion.sort(numeros, ordenOpt, pasos == 1);
+                    view.showOrder();
+                    int orden1 = view.inputOption(2);
+                    boolean ordenOpt1 = orden1 == 1;
+                    view.showPasosMenu();
+                    int pasos1 = view.inputOption(2);
+                    sortInsertion.sort(numeros, ordenOpt1, pasos1 == 1);
                     break;
                 case 3:
                     System.out.println("Metodo Burbuja");
-
+                    //view.showOrder();
+                    //int orden2 = view.inputOption(2);
+                    //boolean ordenOpt2 = orden2 == 1;
+                    //view.showPasosMenu();
+                    //int pasos2 = view.inputOption(2);
+                    //sortBubble.sort(numeros, ordenOpt2, pasos2 == 1);
                     break;
                 case 4:
                     System.out.println("Adios");
