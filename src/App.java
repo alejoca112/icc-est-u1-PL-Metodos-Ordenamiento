@@ -7,6 +7,7 @@ public class App {
         int[] numeros = new int[] {1, 3 ,4, 5, 2};
         SortSelection sortSelection = new SortSelection();
         InsertionSort sortInsertion = new InsertionSort();
+        BubbleSort bubbleSort = new BubbleSort();
 
         while (true) {
             view.showMenu();
@@ -34,12 +35,13 @@ public class App {
                     break;
                 case 3:
                     System.out.println("Metodo Burbuja");
-                    //view.showOrder();
-                    //int orden2 = view.inputOption(2);
-                    //boolean ordenOpt2 = orden2 == 1;
-                    //view.showPasosMenu();
-                    //int pasos2 = view.inputOption(2);
-                    //sortBubble.sort(numeros, ordenOpt2, pasos2 == 1);
+                    view.showOrder();
+                    int orden2 = view.inputOption(2);
+                    boolean ordenOpt2 = orden2 == 1;
+                    view.showPasosMenu();
+                    int pasos2 = view.inputOption(2);
+                    boolean verPasos2 = (pasos2 ==1);
+                    bubbleSort.sort(numeros, ordenOpt2, pasos2 == 1);
                     break;
                 case 4:
                     System.out.println("Adios");
